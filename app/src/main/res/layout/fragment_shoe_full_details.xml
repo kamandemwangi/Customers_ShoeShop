@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.ShoeFullDetailsFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:id="@+id/layout_tab_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.viewpager.widget.ViewPager
+                android:id="@+id/view_pager"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_margin="10dp">
+
+            </androidx.viewpager.widget.ViewPager>
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tab_layout"
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                app:tabBackground="@drawable/tab_selector"
+                app:tabGravity="center"
+                app:tabIndicatorHeight="0dp"
+                app:tabMaxWidth="10dp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_shoe_details"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/full_details_shoe_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Name"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                style="@style/TextAppearance.MaterialComponents.Subtitle1"/>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/full_details_shoe_price_tag"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Price tag"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                style="@style/TextAppearance.MaterialComponents.Body1"/>
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/full_details_shoe_gender"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:text="Male"/>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/full_details_shoe_short_desc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Price tag"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                style="@style/TextAppearance.MaterialComponents.Caption"/>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Select shoe size"
+                style="@style/TextAppearance.MaterialComponents.Body2"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/shoe_full_details_shoe_sizes_recyclerView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"/>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/full_details_shoe_unselected_shoe_size_error_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Select shoe size"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/error"
+                android:visibility="gone"
+                style="@style/TextAppearance.MaterialComponents.Body2"/>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Select shoe color"
+                style="@style/TextAppearance.MaterialComponents.Body2"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/shoe_full_details_shoe_color_recyclerView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"/>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/full_details_shoe_unselected_shoe_color_error_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Select shoe color"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/error"
+                android:visibility="gone"
+                style="@style/TextAppearance.MaterialComponents.Body2"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/add_to_bag_button"
+                android:layout_width="match_parent"
+                android:layout_height="65dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:layout_gravity="center"
+                android:padding="5dp"
+                android:text="Add to bag"
+                android:textAllCaps="false"
+                android:textSize="23sp"
+                app:cornerRadius="50dp"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/continue_shopping_button"
+                android:layout_width="match_parent"
+                android:layout_height="65dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:layout_gravity="center"
+                android:padding="5dp"
+                android:text="Continue Shopping"
+                android:visibility="gone"
+                android:textAllCaps="false"
+                android:textSize="17sp"
+                app:cornerRadius="50dp"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/proceed_to_payment_button"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="40dp"
+                android:padding="5dp"
+                android:text="Proceed to payment"
+                android:textColor="#000"
+                android:textAllCaps="false"
+                android:textSize="17sp"
+                app:cornerRadius="50dp"
+                android:visibility="gone"
+                style="?attr/materialButtonOutlinedStyle"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"/>
+
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/snack_bar_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:elevation="4dp"
+                android:layout_margin="10dp"/>
+
+            <include layout="@layout/layout_quantity_increment_decrement"/>
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+</ScrollView>

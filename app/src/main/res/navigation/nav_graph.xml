@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/home">
+
+    <fragment
+        android:id="@+id/home"
+        android:name="com.globalshops.customer.shoeShop.ui.bottom_nav.ShopListFragment"
+        android:label="Home"
+        tools:layout="@layout/fragment_shop_list">
+
+        <action
+            android:id="@+id/shoe_list_fragment_to_shoe_list_fragment"
+            app:destination="@+id/shoe_list_fragment"/>
+
+        <action
+            android:id="@+id/shop_list_fragment_to_login_flow"
+            app:destination="@id/login_flow"/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/shoe_list_fragment"
+        android:name="com.globalshops.customer.shoeShop.ui.ShoeListFragment"
+        android:label="Shoes"
+        tools:layout="@layout/fragment_shoe_list">
+
+        <action
+            android:id="@+id/shoe_list_fragment_to_shoe_full_details_fragment"
+            app:destination="@+id/shoe_full_details_fragment"/>
+
+        <argument
+            android:name="selected_shop"
+            app:argType="string"
+            android:defaultValue="null" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/shopping_bag"
+        android:name="com.globalshops.customer.shoeShop.ui.bottom_nav.ShoppingBagFragment"
+        android:label="Shopping Bag"
+        tools:layout="@layout/fragment_shopping_bag">
+
+        <argument
+            android:name="selected_shop"
+            app:argType="string"
+            android:defaultValue="null" />
+
+        <action
+            android:id="@+id/shopping_bag_fragment_to_deliver_service_fragment"
+            app:destination="@+id/delivery_service_fragment"/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/account"
+        android:name="com.globalshops.customer.shoeShop.ui.bottom_nav.AccountFragment"
+        android:label="Account Details"
+        tools:layout="@layout/fragment_account">
+
+        <action
+            android:id="@+id/account_details_to_login_flow"
+            app:destination="@+id/login_flow"
+            app:popUpTo="@layout/fragment_account"
+            app:popUpToInclusive="true"/>
+
+        <action
+            android:id="@+id/account_details_fragment_to_open_oders_fragment"
+            app:destination="@+id/open_orders_fragment"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/open_orders_fragment"
+        android:name="com.globalshops.customer.shoeShop.ui.OpenOrdersFragment"
+        android:label="Open Orders"
+        tools:layout="@layout/fragment_open__orders">
+
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/shoe_full_details_fragment"
+        android:name="com.globalshops.customer.shoeShop.ui.ShoeFullDetailsFragment"
+        android:label="Shoe Details"
+        tools:layout="@layout/fragment_shoe_full_details">
+
+        <action
+            android:id="@+id/shoe_full_details_fragment_to_shoe_list_fragment"
+            app:destination="@id/shoe_list_fragment"
+            app:popUpTo="@id/shoe_full_details_fragment"
+            app:popUpToInclusive="true"/>
+
+        <action
+            android:id="@+id/shoe_full_details_fragment_to_shopping_bag_fragment"
+            app:destination="@+id/shopping_bag"/>
+
+        <argument
+            android:name="selected_shop"
+            app:argType="string"
+            android:defaultValue="null" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/delivery_service_fragment"
+        android:name="com.globalshops.customer.shoeShop.ui.DeliveryServicesFragment"
+        android:label="Delivery Services"
+        tools:layout="@layout/fragment_delivery_services">
+
+        <argument
+            android:name="selected_shop"
+            app:argType="string"
+            android:defaultValue="null" />
+
+        <action
+            android:id="@+id/delivery_service_fragment_to_payment_fragment"
+            app:destination="@id/payment_fragment"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/payment_fragment"
+        android:name="com.globalshops.customer.shoeShop.ui.PaymentFragment"
+        android:label="Payments"
+        tools:layout="@layout/fragment_payment">
+    </fragment>
+
+    <navigation
+        android:id="@+id/login_flow"
+        app:startDestination="@id/login_fragment">
+
+        <fragment
+            android:id="@+id/login_fragment"
+            android:name="com.globalshops.customer.shoeShop.ui.auth.LoginFragment"
+            android:label="Log In"
+            tools:layout="@layout/fragment_login">
+
+            <action
+                android:id="@+id/login_fragment_to_home_fragment"
+                app:destination="@+id/home"
+                app:popUpTo="@id/home"
+                app:popUpToInclusive="true"/>
+
+            <action
+                android:id="@+id/login_fragment_to_create_account_fragment"
+                app:destination="@id/create_account_fragment" />
+        </fragment>
+
+        <fragment
+            android:id="@+id/create_account_fragment"
+            android:name="com.globalshops.customer.shoeShop.ui.auth.CreateAccountFragment"
+            android:label="Create Account"
+            tools:layout="@layout/fragment_create_account">
+
+            <action
+                android:id="@+id/create_account_fragment_to_home_fragment"
+                app:destination="@+id/home"
+                app:popUpTo="@id/home"
+                app:popUpToInclusive="true"/>
+
+            <action
+                android:id="@+id/create_account_fragment_to_login_fragment"
+                app:destination="@id/login_fragment"
+                app:popUpTo="@id/login_fragment"
+                app:popUpToInclusive="true"/>
+
+        </fragment>
+    </navigation>
+
+</navigation>
